@@ -36,10 +36,10 @@ public class UserRegistration {
         //e-mail check
         System.out.print("Enter Email: ");
         String email = sc.nextLine();
-        String emailRegix = "^[a-z]+(\\.[a-z]+)?@[a-z]+\\.co(\\.[a-z]+)?$";
+        String emailRegex = "^[a-z]+(\\.[a-z]+)?@[a-z]+\\.co(\\.[a-z]+)?$";
 
         System.out.println(
-            validate(email,emailRegix)
+            validate(email,emailRegex)
                 ?"Valid Email Id"
                 :"Invalid Email Id"
         );
@@ -47,13 +47,23 @@ public class UserRegistration {
         //mobile Number validation
         System.out.print("Enter Mobile Number (CC XXXXXXXXXX): ");
         String mobileNumber = sc.nextLine();
-        String mobileNumberRegix = "^[0-9]{2} [0-9]{10}$";
+        String mobileNumberRegex = "^[0-9]{2} [0-9]{10}$";
 
         System.out.println(
-            validate(mobileNumber,mobileNumberRegix)
+            validate(mobileNumber,mobileNumberRegex)
                 ?"Valid Mobile Number"
                 :"Invalid Mobile Number"
         );
 
+        //validate passoword
+        System.out.print("Enter Password: ");
+        String password = sc.nextLine();
+        String passwordRegex = "^.{8,}$";
+
+        System.out.println(
+            validate(password,passwordRegex)
+                ?"Valid Password"
+                :"Invalid Password"
+        );
     }
 }
