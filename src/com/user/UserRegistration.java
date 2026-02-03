@@ -15,7 +15,7 @@ public class UserRegistration {
             "^[A-Z][a-z]{2,}$";
 
     private static final String EMAIL_REGEX =
-            "^(?!.*\\.\\.)(?!\\.)(?!.*\\.$)[a-zA-Z][a-zA-Z0-9+_-]*@[a-zA-Z0-9]+(\\.[a-zA-Z]{2,})+$";
+             "^[a-zA-Z](?!.*\\.\\.)([a-zA-Z0-9+_-]|(\\.(?=[a-zA-Z0-9+_-])))*@[a-zA-Z0-9]+(\\.[a-zA-Z]{2,}){1,2}$";
 
     private static final String MOBILE_REGEX =
             "^[0-9]{2} [0-9]{10}$";
