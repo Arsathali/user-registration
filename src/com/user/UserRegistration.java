@@ -12,6 +12,7 @@ public class UserRegistration {
         Scanner sc = new Scanner(System.in);
 
         //first name
+        System.out.print("Enter First Name: ");
         String firstName = sc.nextLine();
         String firstNameRegex = "^[A-Z][a-z]{2,}$";
 
@@ -22,6 +23,7 @@ public class UserRegistration {
         );
 
         //last name
+        System.out.print("Enter Last Name: ");
         String lastName = sc.nextLine();
         String lastNameRegex = "^[A-Z][a-z]{2,}$";
 
@@ -32,6 +34,7 @@ public class UserRegistration {
         );
 
         //e-mail check
+        System.out.print("Enter Email: ");
         String email = sc.nextLine();
         String emailRegix = "^[a-z]+(\\.[a-z]+)?@[a-z]+\\.co(\\.[a-z]+)?$";
 
@@ -39,6 +42,17 @@ public class UserRegistration {
             validate(email,emailRegix)
                 ?"Valid Email Id"
                 :"Invalid Email Id"
+        );
+
+        //mobile Number validation
+        System.out.print("Enter Mobile Number (CC XXXXXXXXXX): ");
+        String mobileNumber = sc.nextLine();
+        String mobileNumberRegix = "^[0-9]{2} [0-9]{10}$";
+
+        System.out.println(
+            validate(mobileNumber,mobileNumberRegix)
+                ?"Valid Mobile Number"
+                :"Invalid Mobile Number"
         );
 
     }
