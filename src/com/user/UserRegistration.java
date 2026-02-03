@@ -11,6 +11,7 @@ public class UserRegistration {
         
         Scanner sc = new Scanner(System.in);
 
+        //first name
         String firstName = sc.nextLine();
         String firstNameRegex = "^[A-Z][a-z]{2,}$";
 
@@ -19,6 +20,17 @@ public class UserRegistration {
                 ?"Valid First Name"
                 :"Invalid First name"
         );
+
+        //last name
+        String lastName = sc.nextLine();
+        String lastNameRegex = "^[A-Z][a-z]{2,}$";
+
+        System.out.println(
+            validate(lastName,lastNameRegex)
+                ?"Valid last Name"
+                :"Invalid last name"
+        );
+
 
     }
 }
