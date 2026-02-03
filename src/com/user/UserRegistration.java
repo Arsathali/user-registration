@@ -55,10 +55,10 @@ public class UserRegistration {
                 :"Invalid Mobile Number"
         );
 
-        //validate passoword UC7 - atlease 1 Digit
+        //validate passoword UC8 - Exactly one special character
         System.out.print("Enter Password: ");
         String password = sc.nextLine();
-        String passwordRegex = "^(?=.*[A-Z])(?=.*\\d).{8,}$";
+        String passwordRegex = "^(?=.*[A-Z])(?=.*\\d)(?=(?:.*[@#$%^&+=!]){1}).{8,}$";
 
         System.out.println(
             validate(password,passwordRegex)
