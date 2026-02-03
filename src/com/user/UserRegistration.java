@@ -31,6 +31,15 @@ public class UserRegistration {
                 :"Invalid last name"
         );
 
+        //e-mail check
+        String email = sc.nextLine();
+        String emailRegix = "^[a-z]+(\\.[a-z]+)?@[a-z]+\\.co(\\.[a-z]+)?$";
+
+        System.out.println(
+            validate(email,emailRegix)
+                ?"Valid Email Id"
+                :"Invalid Email Id"
+        );
 
     }
 }
