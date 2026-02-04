@@ -14,7 +14,7 @@ class UserValidatorTest {
 
     @Test
     void givenInvalidFirstName_shouldThrowException() {
-        assertThrows(UserValidationException.class,()->UserRegistration.validateFirstName("ar") )
+        assertThrows(UserValidationException.class,() -> UserRegistration.validateFirstName("ar"));
     }
 
     // Last Name
@@ -55,4 +55,5 @@ class UserValidatorTest {
         assertThrows(UserValidationException.class, () ->
             UserRegistration.validatePassword("abcdefg"));
     }
+
 }
