@@ -1,11 +1,9 @@
 
 import java.util.regex.Pattern;
 
-public class UserRegistration {
+import exception.UserValidationException;
 
-    static boolean validate(String input , String regex){
-        return Pattern.matches(regex,input);
-    }
+public class UserRegistration {
 
     // Regex constants
     private static final String FIRST_NAME_REGEX =
@@ -25,23 +23,33 @@ public class UserRegistration {
 
 
     // Validation methods
-    public static boolean validateFirstName(String name) {
-        return Pattern.matches(FIRST_NAME_REGEX, name);
+    public static void validateFirstName(String name) throws UserValidationException {
+        if(!Pattern.matches(FIRST_NAME_REGEX, name)){
+            throw new UserValidationException("Invalid First Name");
+        }
     }
 
-    public static boolean validateLastName(String name) {
-        return Pattern.matches(LAST_NAME_REGEX, name);
+    public static void validateLastName(String name) throws UserValidationException{
+        if(!Pattern.matches(LAST_NAME_REGEX, name)){
+            throw new UserValidationException("Invalid Last Name");
+        }
     }
 
-    public static boolean validateEmail(String email) {
-        return Pattern.matches(EMAIL_REGEX, email);
+    public static void validateEmail(String email) throws UserValidationException{
+        if(!Pattern.matches(EMAIL_REGEX, email)){
+            throw new UserValidationException("Invalid Email");
+        }
     }
 
-    public static boolean validateMobile(String mobile) {
-        return Pattern.matches(MOBILE_REGEX, mobile);
+    public static void validateMobile(String mobile) throws UserValidationException{
+        if(!Pattern.matches(MOBILE_REGEX, mobile)){
+            throw new UserValidationException("Invalid Mobile Number");
+        }
     }
 
-    public static boolean validatePassword(String password) {
-        return Pattern.matches(PASSWORD_REGEX, password);
+    public static void validatePassword(String password) throws UserValidationException{
+        if(!Pattern.matches(PASSWORD_REGEX, password)){
+            throw new UserValidationException("Invalid Password");
+        }
     }
 }

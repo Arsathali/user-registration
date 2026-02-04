@@ -4,23 +4,26 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import exception.UserValidationException;
+
 
 public class EmailParameterizedTest {
     
     @ParameterizedTest
     @ValueSource(strings = {
-    "abc@yahoo.com",
-    "abc-100@yahoo.com",
-    "abc.100@yahoo.com",
-    "abc111@abc.com",
-    "abc-100@abc.net",
-    "abc.100@abc.com.au",
-    "abc@1.com",
-    "abc@gmail.com.com",
-    "abc+100@gmail.com"
+        "abc@yahoo.com",
+        "abc-100@yahoo.com",
+        "abc.100@yahoo.com",
+        "abc111@abc.com",
+        "abc-100@abc.net",
+        "abc.100@abc.com.au",
+        "abc@1.com",
+        "abc@gmail.com.com",
+        "abc+100@gmail.com"
     })
-    public void givenValidEmails_whenValidated_thenReturnsTrue(String email) {
-        assertTrue(UserRegistration.validateEmail(email));
+     void givenValidEmails_shouldNotThrowException(String email) {
+        assertDoesNotThrow(() ->
+            UserRegistration.validateEmail(email));
     }
 
     @ParameterizedTest
@@ -39,10 +42,8 @@ public class EmailParameterizedTest {
         "abc@gmail.com.1a",
         "abc@gmail.com.aa.au"
     })
-    public void givenInvalidEmails_whenValidated_thenReturnsFalse(String email) {
-        assertFalse(UserRegistration.validateEmail(email));
+    void givenInvalidEmails_shouldThrowException(String email) {
+        assertThrows(UserValidationException.class, () ->
+            UserRegistration.validateEmail(email));
     }
-
-
-
 }
